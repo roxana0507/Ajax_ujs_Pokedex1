@@ -1,0 +1,28 @@
+<%= form_with(model: todo, local: false) do |form| %>  <%# ujs encargate de enviar este formulario, con el local: false %>
+  <% if todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+        <% todo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :done %>
+    <%= form.check_box :done %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit data: {disable_with: 'submitting...'} %> <%# cuando le hagas clic al boton submit cambialo por submiting para que la persona no pueda hacer clic mas de una vez  %>
+   
+  </div>
+<% end %>

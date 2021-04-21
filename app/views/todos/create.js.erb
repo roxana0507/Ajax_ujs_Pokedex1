@@ -1,0 +1,4 @@
+<%# el nombre del metodo se llama create por eso el archivo tambien lo podemos ver en la ruta por convencion. %>
+
+var elemento = document.querySelector('table tbody')
+elemento.insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: 'todos/todo', locals: {todo: @todo}) %>")
